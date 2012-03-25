@@ -21,11 +21,12 @@ setup(name='optilux.policy',
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
+        "Framework :: Plone",
         "Programming Language :: Python",
         ],
       keywords='',
-      author='',
-      author_email='',
+      author='Ivan Teoh',
+      author_email='ivan.teoh@gmail.com',
       url='http://svn.plone.org/svn/collective/',
       license='gpl',
       packages=find_packages('src'),
@@ -36,6 +37,7 @@ setup(name='optilux.policy',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'Plone',
       ],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""
@@ -43,4 +45,6 @@ setup(name='optilux.policy',
   	  [z3c.autoinclude.plugin]
   	  target = plone
       """,
+      # setup_requires=["PasteScript"],
+      # paster_plugins=["ZopeSkel"],
       )

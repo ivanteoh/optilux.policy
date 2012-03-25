@@ -5,13 +5,11 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="optilux.policy">
 
-  <five:registerPackage package="." initialize=".initialize" />
-
   <genericsetup:registerProfile
       name="default"
-      title="optilux.policy"
+      title="Optilux Site Policy"
       directory="profiles/default"
-      description="Installs the optilux.policy package"
+      description="Turn a Plone site into the Optilux site."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <!-- -*- extra stuff goes here -*- -->
