@@ -12,6 +12,15 @@
       description="Turn a Plone site into the Optilux site."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+      
+  <genericsetup:importStep
+      name="optilux-various"
+      title="Additional Optilux site policy setup"	
+      description="Optilux site policy configuration"
+      handler="optilux.policy.setuphandlers.importVarious">
+    <depends name="rolemap"/>
+  </genericsetup:importStep>
+
   <!-- -*- extra stuff goes here -*- -->
   
 </configure>
