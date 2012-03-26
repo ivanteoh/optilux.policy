@@ -4,23 +4,25 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="optilux.policy">
+    
+    <includeDependencies package="." />
 
-  <genericsetup:registerProfile
-      name="default"
-      title="Optilux Site Policy"
-      directory="profiles/default"
-      description="Turn a Plone site into the Optilux site."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+    <genericsetup:registerProfile
+        name="default"
+        title="Optilux Site Policy"
+        directory="profiles/default"
+        description="Turn a Plone site into the Optilux site."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
       
-  <genericsetup:importStep
-      name="optilux-various"
-      title="Additional Optilux site policy setup"	
-      description="Optilux site policy configuration"
-      handler="optilux.policy.setuphandlers.importVarious">
-    <depends name="rolemap"/>
-  </genericsetup:importStep>
+    <genericsetup:importStep
+        name="optilux-various"
+        title="Additional Optilux site policy setup"	
+        description="Optilux site policy configuration"
+        handler="optilux.policy.setuphandlers.importVarious">
+        <depends name="rolemap"/>
+    </genericsetup:importStep>
 
-  <!-- -*- extra stuff goes here -*- -->
+    <!-- -*- extra stuff goes here -*- -->
   
 </configure>
