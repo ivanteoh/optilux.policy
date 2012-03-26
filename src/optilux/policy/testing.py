@@ -4,6 +4,8 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import applyProfile
 
+from plone.testing import z2
+
 from zope.configuration import xmlconfig
 
 class OptiluxPolicy(PloneSandboxLayer):
@@ -16,7 +18,20 @@ class OptiluxPolicy(PloneSandboxLayer):
         xmlconfig.file('configure.zcml',
                        optilux.policy,
                        context=configurationContext)
-
+        
+        # Install products that use an old-style initialize()
+        # function
+        z2.installProduct(app, 'Products.PythonField')
+        z2.installProduct(app, 'Products.TALESField')
+        z2.installProduct(app, 'Products.TemplateFields')
+        z2.installProduct(app, 'Products.PloneFormGen')
+        
+    def tearDownZope(self, app):
+        # Uninstall products installed above
+        z2.uninstallProduct(app, 'Products.PloneFormGen')
+        z2.uninstallProduct(app, 'Products.TemplateFields')
+        z2.uninstallProduct(app, 'Products.TALESField')
+        z2.uninstallProduct(app, 'Products.PythonField')
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'optilux.policy:default')
